@@ -1,0 +1,101 @@
+{% load static %}
+
+<script src='{% static 'assets/libs/jquery/dist/jquery.min.js' %}'></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src='{% static 'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}'></script>
+<!-- apps -->
+<script src='{% static 'js/app.min.js' %}'></script>
+<script src='{% static 'js/app.init.js' %}'></script>
+<script src='{% static 'js/app-style-switcher.js' %}'></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src='{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}'></script>
+<script src='{% static 'assets/extra-libs/sparkline/sparkline.js' %}'></script>
+<!--Wave Effects -->
+<script src='{% static 'js/waves.js' %}'></script>
+<!--Menu sidebar -->
+<script src='{% static 'js/sidebarmenu.js' %}'></script>
+<!--Custom JavaScript -->
+<script src='{% static 'js/feather.min.js' %}'></script>
+<script src='{% static 'js/custom.min.js' %}'></script>
+<!--This page JavaScript -->
+<script src='{% static 'assets/libs/apexcharts/dist/apexcharts.min.js' %}'></script>
+<!-- Chart JS -->
+<script src='{% static 'js/pages/dashboards/dashboard1.js' %}'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script type="text/javascript">
+    $('.open_message_clerk_modal').on('click', function (event) {
+        var clerk_email = $(this).data('clerk-email'); // Extract info from data-* attributes
+        var clerk_name = $(this).data('clerk-name');  
+        var transaction_id = $(this).data('transaction-id');
+        $('#send_email_to_clerk_clerk_email').val(clerk_email);
+        $('#send_email_to_clerk_transaction_id').val(transaction_id);
+        $('#send_email_to_clerk_clerk_name').text(clerk_name);
+    })
+
+    $('.open_document_upload_modal').on('click', function (event) {
+        var transaction_id = $(this).data('transaction-id');
+        var task_api = $(this).data('task-api');
+        var task_value = $(this).data('task-value');
+        $('#document_upload_modal_transaction_id').val(transaction_id);
+        $('#document_upload_modal_task_api').val(task_api);
+        $('#document_upload_modal_task_value').val(task_value);
+        console.log('open_document_upload_modal clicked');
+    })
+
+    $('#document-upload-popup-form').submit(function(e){
+        
+        var upload_field_id = "document_upload_modal_file";
+        var max_size_in_bytes = 37748736;
+        var fld = document.getElementById(upload_field_id);
+        e.preventDefault();
+        var is_ok = true;
+        for (var i = 0, file; file = fld.files[i]; i++ ) {
+            console.log(file.size);
+            console.log(file.type);
+            
+            if(file.size > max_size_in_bytes)
+            { 
+                alert("The file size must be no more than " + parseInt(max_size_in_bytes/1024/1024) + "MB");
+                is_ok = false;
+                break;                
+            } 
+
+            if(file.type == 'application/json' || file.type == 'text/html') {
+                alert("JSON and HTML files are not allowed");
+                is_ok = false;
+                break;
+            } 
+        }
+
+        console.log(is_ok);
+        
+        if(is_ok) {
+            $('#document-upload-popup-form')[0].submit();
+        }
+        
+    });
+
+    $('#apply_transactions_filter').on('click', function (event) {
+        var broker = $("#broker_name_filter").val(); 
+        var status = $("#status_filter").val(); 
+        var type = $("#transaction_type_filter").val(); 
+        console.log(broker);
+        console.log(status);
+        console.log(type);
+        let queries = ''
+        if(broker || status || type) queries += '?';
+        if(broker) queries += 'broker=' + broker;
+        if(status) {
+            queries += broker ? '&status=' + status : 'status=' + status;
+        }
+        if(type) {
+            queries += status || broker ? '&type=' + type : 'type=' + type;
+        }
+        let url = window.location.pathname + queries;
+        console.log(url);
+        window.location.href = url;
+    })
+
+</script>

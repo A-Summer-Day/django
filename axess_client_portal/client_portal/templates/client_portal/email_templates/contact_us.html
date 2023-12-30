@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="main-wrapper">
+        <h3>Axess Client Portal Feedbacks</h3>
+        <p><strong>Salesforce Contact ID: </strong> {{ contact_id }}</p>
+        <p><strong>Email Address: </strong> {{ from_email }}</p>
+        <p><strong>Message: </strong> {{ user_message }}</p>
+    </div>
+{% endblock %}

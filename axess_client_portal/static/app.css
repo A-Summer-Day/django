@@ -1,0 +1,1330 @@
+
+@media (min-width: 768px) {
+    #main-wrapper[data-layout=vertical][data-sidebartype=full] .topbar .top-navbar .navbar-header .logo-icon {
+        display: none;
+    }
+}
+
+.bg-primary.auth-box-2.on-sidebar {
+    background-color: #f18619!important;
+}
+
+#main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.selected>.sidebar-link, #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.selected>.sidebar-link {
+    background-color: #2d69f6;
+}
+
+.sidebar-nav ul .sidebar-item .sidebar-link {
+    border-radius: 28px;
+}
+
+.welcome {
+    width: 160px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9ba1b1;
+    }
+
+.welcome-name {
+    width: 205px;
+    height: 32px;
+    margin: 7px 0 6px;
+    font-family: SFProDisplay;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.sidebar-link {
+    /* justify-content: space-between; */
+}
+
+.account-summary {
+    width: 449px;
+    height: 23px;
+    margin: 45px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.clients-card {
+    width: 320px;
+    height: 100px;
+    margin: 26px 32px;
+    padding: 14px 18px 14px 24px;
+    border-radius: 21px;
+    background-color: #2d69f6;
+}
+
+.clients-card-left {
+    width: 233px;
+    height: 72px;
+    margin: 0 22px 0 0;
+}
+
+.clients-card-header {
+    width: 72px;
+    height: 28px;
+    margin: 0 161px 5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.clients-card-total {
+    width: 32px;
+    height: 45px;
+    margin: 27px 12px 0 0;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.clients-card-description {
+    width: 189px;
+    height: 39px;
+    margin: 5px 0 0 0px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.appointments-card {
+    width: 320px;
+    height: 100px;
+    margin: 26px 34px 26px 32px;
+    padding: 14px 18px 14px 24px;
+    border-radius: 21px;
+    background-color: #384364;
+}
+
+.appointments-card-left {
+    width: 212px;
+    height: 72px;
+    margin: 0 43px 0 0;
+}
+
+.appointments-card-header {
+    width: 148px;
+    height: 28px;
+    margin: 0 64px 12px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.appointments-card-total {
+    width: 30px;
+    height: 45px;
+    margin: 27px 17px 0 0;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.appointments-card-description {
+    width: 165px;
+    height: 19px;
+    margin: 12px 0 13px 0px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.clerks-card {
+    width: 320px;
+    height: 100px;
+    margin: 26px 32px;
+    padding: 14px 17px 14px 24px;
+    border-radius: 21px;
+    border: solid 1px #f6871f;
+    background-color: #fff;
+}
+
+.clerks-card-left {
+    
+}
+
+.clerks-card-header {
+    width: 66px;
+    height: 28px;
+    margin: 0 190px 5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}
+
+.clerks-card-total {
+    width: 22px;
+    height: 45px;
+    margin: 27px 18px 0 2px;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.clerks-card-description {
+    width: 202px;
+    height: 39px;
+    margin: 5px 12px 0 0px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transactions-card {
+    width: fit-content;
+    height: 100px;
+    margin: 26px 41px 26px 33px;
+    padding: 3px 3px 3px 24px;
+    border-radius: 21px;
+    background-color: #f6871f;
+}
+
+.transactions-card-left {
+    width: 291px;
+    height: 72px;
+    margin: 11px 22px 11px 0;
+}
+
+.transactions-card-left-left {
+    width: 250px;
+    height: 72px;
+    /* margin: 0 98px 0 0; */
+}
+
+.transactions-card-header {
+    width: 136px;
+    height: 28px;
+    margin: 0 34px 5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.transactions-card-total {
+    width: 22px;
+    height: 45px;
+    margin: 27px 12px 0 0;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.97;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.transactions-card-description{
+    width: 136px;
+    height: 39px;
+    margin: 5px 0 0 0px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+}
+
+.transactions-card-right {
+    /* width: 676px; */
+    height: 94px;
+    margin: 0 0 0 22px;
+    padding: 9px 37.2px 10.7px 17px;
+    border-radius: 21px;
+    background-color: #fff;
+}
+
+.transactions-card-total-new {
+    width: 182.6px;
+    height: 61px;
+    margin: 6.5px 29.9px 5.8px 0;
+}
+
+.transactions-card-total-open {
+    /* width: 162.4px; */
+    height: 68px;
+    margin: 5.3px 36.3px 0 27.3px;
+}
+
+.transactions-card-total-open.transactions-page {
+    border-radius: 21px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+    width: fit-content!important;
+    height: fit-content!important;
+    padding: 15px 30px;
+    margin: 0px 20px 0px 0px;
+    background-color: #fff;
+}
+
+.transactions-card-total-completed {
+    /* width: 162.4px; */
+    height: 68px;
+    margin: 5.3px 0 0 20.9px;
+}
+
+.transactions-card-total-completed.transactions-page {
+    border-radius: 21px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+    width: fit-content!important;
+    height: fit-content!important;
+    padding: 15px 30px;
+    margin: 0px 20px 0px 0px;
+    background-color: #fff;
+}
+
+.transactions-card-total-new-number {
+    width: 41px;
+    height: 28px;
+    margin: 9.5px 80.6px 23.5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2d69f6;
+}
+
+.transactions-card-total-new-description {
+    width: 108px;
+    height: 17px;
+    margin: 35.5px 13.6px 8.5px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.58;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transactions-card-total-new-oval {
+    width: 61px;
+    height: 61px;
+    /* margin: 0 0 0 13.6px; 
+    margin: 0 0 0 0x;
+    /* padding: 0 0px 0 8.6px; 
+    padding: 0 0px 0 0px;
+    /* opacity: 0.13;
+    background-color: #2d69f6; 
+    background-color: #e3ebfd;
+    border-radius: 50px;
+    border: 3px solid #2d69f6;*/
+}
+
+.transactions-card-total-new-percent {
+    /* width: 52.3px; */
+    width: 100%;
+    height: 100%;
+    /* height: 61px; */
+    /*padding: 21.5px 15.6px 24.5px 6.7px;
+     background-color: #2d69f6; */
+    background-color: #e3ebfd;
+    border-radius: 50px;
+    border-color: #2d69f6;
+}
+
+.transactions-card-total-new-number-inside {
+    width: 30px;
+    height: 15px;
+    font-family: DMSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+}
+
+.transactions-card-total-open-number {
+    width: 41px;
+    height: 28px;
+    margin: 9.5px 56px 23.5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #f6871f;
+}
+
+.transactions-card-total-open-description {
+    width: 108px;
+    height: 17px;
+    margin: 35.5px 13.6px 8.5px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.58;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transactions-card-total-open-oval {
+    width: 61px;
+    height: 61px;
+    /* margin: 0 0 0 13.6px; 
+    margin: 0 0 0 0x;
+    /* padding: 0 0px 0 8.6px; 
+    padding: 0 0px 0 0px;
+    /* opacity: 0.13;
+    background-color: #2d69f6; 
+    background-color: #f0d9cb;
+    border-radius: 50px;
+    border: 3px solid #f6871f;*/
+}
+
+.transactions-card-total-open-percent {
+    /* width: 52.3px; */
+    width: 100%;
+    height: 100%;
+    /* height: 61px; */
+    /*padding: 21.5px 15.6px 24.5px 6.7px;
+     background-color: #2d69f6; */
+    background-color: #f0d9cb;
+    border-radius: 50px;
+    border-color: #f6871f;
+}
+
+.transactions-card-total-open-number-inside {
+    width: 30px;
+    height: 15px;
+    font-family: DMSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+}
+
+.transactions-card-total-completed-number {
+    width: 41px;
+    height: 28px;
+    margin: 9.5px 56px 23.5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #34b53a;
+}
+
+.transactions-card-total-completed-description {
+    width: 108px;
+    height: 17px;
+    margin: 35.5px 13.6px 8.5px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.58;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transactions-card-total-completed-oval {
+    width: 61px;
+    height: 61px;
+    /* margin: 0 0 0 13.6px; 
+    margin: 0 0 0 0x;
+    /* padding: 0 0px 0 8.6px; 
+    padding: 0 0px 0 0px;
+    /* opacity: 0.13;
+    background-color: #2d69f6; 
+    background-color: #e2fbd7;
+    border-radius: 50px;
+    border: 3px solid #34b53a;*/
+}
+
+.transactions-card-total-completed-percent {
+    /* width: 52.3px; */
+    width: 100%;
+    height: 100%;
+    /* height: 61px; */
+    /*padding: 21.5px 15.6px 24.5px 6.7px;
+     background-color: #2d69f6; */
+    background-color: #e2fbd7;
+    border-radius: 50px;
+    border-color: #34b53a;
+}
+
+.transactions-card-total-completed-number-inside {
+    width: 30px;
+    height: 15px;
+    font-family: DMSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+}
+
+.last-transaction-description {
+    width: 100%;
+    height: 23px;
+    margin: 26px 0px 17px 32px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.94;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+    padding: initial;
+}
+
+.last-transaction {
+    width: 1028px;
+    /* height: 476px; */
+    margin: 17px 31px 28px;
+    padding: 0.5px 1px 20px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.last-transaction-table {
+    width: 1026px;
+    height: fit-content;
+    /* height: 206.5px; */
+    margin: 17px 0 0;
+}
+
+.users-tasks-header {
+    /* width: 96px; */
+    width: fit-content;
+    /* height: 23px; */
+    height: fit-content;
+    margin: 0 595.9px 26px 0px;
+    font-family: Poppins;
+    font-size: 26px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.94;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.user-tasks-table thead{
+    
+}
+
+.user-tasks-table tbody{
+    
+}
+
+.user-tasks-table {
+    padding: initial;
+}
+
+.user-tasks-table-task-name {
+    font-family: Poppins;
+    font-size: initial;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 3.1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.user-tasks-table-task-status {
+    font-family: Poppins;
+    font-size: initial;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 3.1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.user-tasks-table-task-action {
+    font-family: Poppins;
+    font-size: initial;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 3.1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2d69f6;
+}
+
+.user-tasks-table tbody tr td {
+    padding: unset;
+}
+
+.last-transaction-horizontal-line {
+    width: 1026px;
+    height: 1px;
+    margin: 29.8px 0 19px;
+    padding: 0.5px 0;
+    background-color: #d9dce1;
+}
+
+.last-transaction-vertical-line {
+
+}
+
+.last-transaction-milestone-item {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 18px;
+    padding: 2px 7px 2px 2px;
+    border-radius: 6px;
+    border: solid 1px #d9dce1;
+}
+
+.last-transaction-mobile-milestones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px; 
+    justify-items: center;
+    margin: 0;
+    padding: 0;
+    grid-auto-rows: 1fr;
+}
+
+.last-transaction-milestone-item-mobile-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.last-transaction-milestone-item-mobile {
+    height: fit-content;
+    /* margin: 0 18px; */
+    margin: 5px 0px;
+    padding: 2px 7px 2px 2px;
+    border-radius: 6px;
+    border: solid 1px #d9dce1;
+}
+
+.last-transaction-milestone-item.completed {
+   border: solid 1px #40bc3a;
+}
+
+.last-transaction-milestone-item-mobile.completed {
+    border: solid 1px #40bc3a;
+ }
+
+.last-transaction-overview-left {
+    width: 638.8px;
+    height: 107.4px;
+    margin: 25.3px 39px 29.8px 25.2px;
+}
+
+.last-transaction-overview-right {
+    width: 301px;
+    height: 163px;
+    margin: 0 22px 19.5px 39px;
+}
+
+.last-updated-description {
+    width: 69px;
+    height: 15px;
+    margin: 1px 3px 1px 0;
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.8;
+    letter-spacing: normal;
+    text-align: left;
+    color: #717684;
+}
+
+.last-updated-date {
+    width: 118px;
+    height: 17px;
+    margin: 0 0 0 3px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: center;
+    color: #384364;
+}
+
+.transaction-overview {
+    width: 487px;
+    height: 86px;
+    margin: 9.7px 0 11.7px 29.2px;
+}
+
+.transaction-overview.transaction-name {
+    width: 487px;
+    height: 40px;
+    margin: 0 0 8px;
+}
+
+.transaction-name-description {
+    width: 103px;
+    height: 17px;
+    margin: 0 384px 0 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #717684;
+}
+
+.transaction-name-name {
+    width: 487px;
+    height: 23px;
+    margin: 17px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transaction-overview.portal-transaction-type {
+    width: 234px;
+    height: 38px;
+    margin: 8px 253px 0 0;
+}
+
+.portal-transaction-type-description {
+    width: 69px;
+    height: 17px;
+    margin: 0 165px 21px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #717684;
+}
+
+.portal-transaction-type-type {
+    width: 234px;
+    height: 23px;
+    margin: 15px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    text-align: left;
+    color: #f6871f;
+}
+
+.transaction-overview.closing-date {
+    width: 229px;
+    height: 38px;
+    margin: 8px 44px 0 214px;
+}
+
+.closing-date-description {
+    width: 118px;
+    height: 17px;
+    margin: 0 111px 21px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #717684;
+}
+
+.closing-date-date {
+    width: 229px;
+    height: 23px;
+    margin: 15px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fa3102;
+}
+
+
+.circular-chart {
+    display: block;
+    /* margin: 10px auto;
+    max-width: 80%; */
+    max-height: 250px;
+}
+  
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+  
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+  
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+  
+.circular-chart.orange .circle {
+    stroke: #f6871f;
+}
+  
+.circular-chart.green .circle {
+    stroke: #34b53a;
+}
+  
+.circular-chart.blue .circle {
+    stroke: #2d69f6;
+}
+  
+.percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
+
+#transactions-table {
+    background-color: #fff;
+}
+
+#transactions-table thead tr th{ 
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.38;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364!important;
+  }
+
+  #transactions-table thead {
+    box-shadow: 0px 10px 10px 0 rgba(141, 154, 255, 0.16);
+    /* border: solid 1px rgba(205, 208, 227, 0.29); */
+  }
+
+  #transactions-table tbody {
+    /* border: solid 1px rgba(205, 208, 227, 0.29); */
+  }
+
+  #transactions-table .transaction-name {
+    color: #384364!important;
+  }
+
+  #transactions-table tbody tr td { 
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.38;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+  }
+
+  .breadcrumb-item+.breadcrumb-item::before {
+    /* content: var(--bs-breadcrumb-divider, "|"); */
+    content: none;
+  }
+
+  .page-titles.new-template h1 {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+} 
+
+.progress-bar-description {
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.38;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.current-page-name {
+    margin-right: 20px;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+#transactions-table td, #transactions-table th { 
+    border: unset;
+}
+
+.client-details {
+    width: 1028px;
+    height: 86px;
+    margin: 29px 31px 43px;
+    padding: 0 37.5px 0 25px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.client-details-description {
+    width: 133px;
+    height: 28px;
+    /* margin: 19.5px 85px 19.5px 0; */
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.client-details-image {
+    width: 67px;
+    height: 67px;
+    margin: 0 20px 0 85px;
+}
+
+.client-details-details {
+
+}
+
+.client-details-actions {
+
+}
+
+.client-details-details-name {
+    /* width: 1440px;
+    height: 900px; 
+    background-color: #f7f7fa;*/
+}
+
+.client-details-details-email {
+    /* width: 228px;
+    height: 44px; 
+    margin: 11.5px 40px 11.5px 20px;*/
+}
+
+.client-details-actions-send-email {
+    /* width: 113.5px;
+    height: 36px;
+    margin: 21px 38px 10px 40px; */
+}
+
+.client-details-actions-call {
+    /* width: 66px;
+    height: 36px; 
+    margin: 21px 0 10px 38px;*/
+}
+
+.client-details-details-name-description {
+    /* width: 105px;
+    height: 19px; */
+    margin: 0 50px 2px 0;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9ba1b1;
+}
+
+.client-details-details-name-name {
+    /* width: 155px;
+    height: 23px; */
+    margin: 2px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.client-details-details-email-description {
+    /* width: 105px;
+    height: 19px; */
+    margin: 0 123px 2px 0;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9ba1b1;
+}
+
+.client-details-details-email-email {
+    /* width: 228px;
+    height: 23px; */
+    margin: 2px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.client-details-actions-text {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}
+
+.confirm-reset-password-title {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.reset-password-buton{
+    width: 204px;
+    height: 52px;
+    margin: 43px 198px 0 0;
+    /* padding: 16px 43px 16px 36px; */
+    border-radius: 26px;
+    background-color: #f6871f;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+@media (max-width: 766px) {
+    #last-transaction-desktop, #transactions-card-desktop, .hide-in-mobile-view {
+        display: none!important;
+    }
+}
+
+
+@media (min-width: 766px) {
+    #transactions-card-mobile, #last-transaction-mobile, #transactions-card-wrapper, .hide-in-desktop-view {
+        display: none!important;
+    }
+
+    .transacions-page {
+        margin-left: 31px; 
+        margin-right: 31px; 
+        padding-left: unset; 
+        padding-right: unset; 
+        max-width: 95%;
+    }
+
+    .change-password-desktop {
+        max-width: 80%;
+    }
+}
+
+#transactions-card-mobile {
+    padding: 14px 18px 14px 24px;
+}
+
+@media (max-width: 930px) {
+    .transactions-card-right {
+        display: none!important;
+    }
+}
+
+.transaction-name-mobile {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 2.58; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transaction-description-mobile {
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 3.1; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #9ba1b1;
+}
+
+.transaction-type-mobile {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 2.58; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #384364;
+}
+
+.transaction-date-mobile {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    /* line-height: 2.58; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #f6871f;
+
+}
+
+.stack-table-mobile td {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.page-titles {
+    padding: 30px 30px 0;
+}
+
+.client-details-card {
+    width: 320px;
+    height: 100px;
+    margin: 16px 27px 23px 28px;
+    padding: 14px 30px 19px 24px;
+    border-radius: 21px;
+    border: solid 1px #f6871f;
+    background-color: #fff;
+}
+
+.client-details-card-header {
+    width: 150px;
+    height: 28px;
+    margin: 0 48px 5px 0;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}
+
+.client-details-card-name {
+    width: 94px;
+    height: 19px;
+    margin: 0;
+    /* margin: 0 61px 0 0; */
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}
+
+.client-details-card-email {
+    width: 155px;
+    height: 15px;
+    margin: 19px 0 0;
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9ba1b1;
+}
+
+.client-details-card-send-email-text {
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}

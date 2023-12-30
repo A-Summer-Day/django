@@ -1,0 +1,192 @@
+[
+    {"0122A0000016NT8QAM":
+        {
+            "name": "Real Estate - Assignment Purchase (New)" ,
+            "label": "Assignment Purchase",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Assignment_APS_Received__c", "label": "Assignment Agreement of Purchase and Sale Submitted"}, {"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0122A0000016NSyQAM":
+        {
+            "name": "Real Estate - Assignment Sale",
+            "label": "Assignment Sale",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Assignment_APS_Received__c", "label": "Assignment Agreement of Purchase and Sale Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0123j000001QQkiAAG":
+        {
+            "name": "Real Estate - Borrower Representation", 
+            "label": "Mortgage - Borrower Representation",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "File Closed"]
+        }
+    },
+    {"0123j000001FJpwAAG":
+        {
+            "name": "Real Estate - Borrower and Lender Representation", 
+            "label": "Borrower and Lender Representation",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "File Closed"]
+        }
+    },
+    {"0123j000001UoELAA0":
+        {
+            "name": "Real Estate - Change of Name",
+            "label": "Change of Name",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "File Closed"]
+        }
+    },
+    {"0123j000001MZ7JAAW":
+        {
+            "name": "Real Estate - Change of Ownership", 
+            "label": "Change of Ownership",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0122A0000016NStQAM":
+        {
+            "name": "Real Estate - Estate Sale", 
+            "label": "Estate Sale",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0122A0000016NT3QAM":
+        {
+            "name": "Real Estate - ILA", 
+            "label": "Independent Legal Advice",
+            "tasks": 
+                [],
+            "milestones": 
+                ["New File", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0123j0000016ZSVAA2":
+        {
+            "name": "Real Estate - Estate Transfer", 
+            "label": "Estate Transfer",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0123j0000016NfEAAU":
+        {
+            "name": "Real Estate - Lender Representation",
+            "label": "Mortgage - Lender Representation",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}],
+            "milestones": 
+                ["New File", "File Processing", "File Closed"]
+        }
+    },
+    {"012F0000000rdKlIAI":
+        {
+            "name": "Real Estate - Mortgage Discharge/Amendment", 
+            "label": "Mortgage Discharge/Amendment",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F00000016JS8IAM":
+        {
+            "name": "Real Estate - Purchase New Build", 
+            "label": "New Construction Purchase",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F0000000rzKzIAI":
+        {
+            "name": "Real Estate - Refinance New", 
+            "label": "Mortgage Refinance",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F0000000rzT9IAI":
+        {
+            "name": "Real Estate - Resale Purchase New", 
+            "label": "Resale Purchase",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F00000016JV7IAM":
+        {
+            "name": "Real Estate - Sale New", 
+            "label": "Sale",
+            "tasks": 
+                [{"api": "APS_Received__c", "label": "Agreement of Purchase and Sale Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F00000016JVMIA2":
+        {
+            "name": "Real Estate - Survivorship New", 
+            "label": "Survivorship",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    },
+    {"0123j0000010DFOAA2":
+        {
+            "name": "Real Estate - Survivorship and Refinance", 
+            "label": "Survivorship and Refinance",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F00000016JVHIA2":
+        {
+            "name": "Real Estate - Title Transfer and Refi", 
+            "label": "Title Transfer & Refinance",
+            "tasks": 
+                [{"api": "Status_Certificate_Received__c", "label": "Status Certificate Submitted"}, {"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Mortgage instructions received", "Sign up complete", "File Closed"]
+        }
+    },
+    {"012F00000016JWAIA2":
+        {
+            "name": "Real Estate - Title Transfer New", 
+            "label": "Title Transfer",
+            "tasks": 
+                [{"api": "Intake_Form_Received__c", "label": "Intake Form Submitted"}, {"api": "Separation_Agreement__c", "label": "Separation Agreement Submitted"}, {"api": "Power_of_Attorney__c", "label": "Power of Attorney Submitted"}],
+            "milestones": 
+                ["New File", "Intake Form Completed", "File Processing", "Sign up complete", "File Closed"]
+        }
+    }
+]

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block title %}
+Sync
+{% endblock title %}
+
+{% block css_files %}
+<link rel='stylesheet' href='{% static 'client_portal/dashboard.css' %}'>
+{% endblock css_files %}
+
+{% block content %}
+<div id="main-wrapper">
+    {% include 'includes/header.html' %}
+    {% include 'includes/sidebar.html' %}
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-titles">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 d-flex align-items-center">
+                            <li class="breadcrumb-item"><a href="/" class="link"><i class="ri-home-3-line fs-5"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">ShiftPlanning Sync</li>
+                        </ol>
+                    </nav>
+                    <h1 class="mb-0 fw-bold">ShiftPlanning Sync</h1>                        
+                </div>
+                <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
+                    {% now "F d, Y" %}
+                </div>
+            </div>
+        </div>
+
+        {% include 'client_portal/partials/messages.html' %}
+
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- -------------------------------------------------------------- -->
+            <!-- Start Page Content -->
+            <!-- -------------------------------------------------------------- -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-light">
+                                <p>Sync ShiftPlanning for Lawyer and CSR</p>
+                                <p>Sync date: 6/28/2022-9/28/2022</p>
+                            </div>
+                            <form class="" method="POST" action='{% url 'client_portal:sync' %}' id="">
+                                {% csrf_token %}
+                               
+                                <button type="submit" class="btn btn-info btn-md px-4">ShiftPlanning Sync with Salesforce</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------- -->
+            <!-- End Page Content -->
+            <!-- -------------------------------------------------------------- -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+
+        {% include 'includes/footer.html' %}
+    </div>
+</div>
+{% include 'includes/footer_scripts.html' %}
+{% endblock content %}

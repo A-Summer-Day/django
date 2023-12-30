@@ -1,0 +1,109 @@
+{% load static %}
+{% load filters %}
+
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                    <i class="nav-small-line"></i>
+                    <span class="hide-menu">QUICK ACCESS</span>
+                </li>
+              <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href='{% url 'client_portal:dashboard' %}' aria-expanded="false">
+                        <i data-feather="grid"></i><span class="hide-menu">Dashboard</span><i class="hide-menu ri-arrow-right-s-fill"></i>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href='{% url 'client_portal:transactions' %}' aria-expanded="false">
+                        <i data-feather="home"></i><span class="hide-menu">Transactions</span><i class="hide-menu ri-arrow-right-s-fill"></i>
+                    </a>
+                </li>
+                <li class="sidebar-item"> 
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href='{% url 'client_portal:tasks' %}' aria-expanded="false">
+                        <i data-feather="trello"></i><span class="hide-menu">My Tasks</span><i class="hide-menu ri-arrow-right-s-fill"></i>
+                    </a>
+                </li>
+                <!-- <li class="sidebar-item"> 
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href='{% url 'client_portal:document-upload' %}' aria-expanded="false">
+                        <i data-feather="check-square"></i><span class="hide-menu">Document Upload</span>
+                    </a>
+                </li> -->
+                <li class="sidebar-item" style="display: none;"> 
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                        <i data-feather="help-circle"></i><span class="hide-menu">To Come</span>
+                    </a>
+                </li>
+
+                {% comment %} <li class="sidebar-item"><br></li> {% endcomment %}
+              
+                {% comment %} <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href='{% url 'client_portal:sync' %}' aria-expanded="false"><i
+                        class="fas fa-sync"></i><span class="hide-menu">ShiftPlanning Sync</span></a>
+                </li> {% endcomment %}
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href='{% url 'password_change' %}' aria-expanded="false"><i
+                        class="ri-lock-password-line"></i><span class="hide-menu">Change Password</span><i class="hide-menu ri-arrow-right-s-fill d-none"></i></a>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    href='{% url 'logout' %}' aria-expanded="false"><i
+                        data-feather="log-out"></i><span class="hide-menu">Log Out</span><i class="hide-menu ri-arrow-right-s-fill d-none"></i></a>
+                </li>
+                
+                <!-- Display only if user logged in is Admin-->
+                {% if user.is_superuser %}
+                    <li class="nav-small-cap"><i class="nav-small-line"></i>
+                        <span class="hide-menu">Admin</span>
+                    </li>
+                    <li class="sidebar-item"> 
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <i data-feather="settings"></i><span class="hide-menu">Admin Tools</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item"> 
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <i data-feather="git-pull-request"></i><span class="hide-menu">Changelog</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item"> 
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="https://github.com/axesslaw/axess-client-portal" target="_blank" aria-expanded="false">
+                            <i data-feather="github"></i><span class="hide-menu">GitHub</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+    <!-- Bottom points-->
+    {% if user.is_client and bdm_email %}
+        <div class="sidebar-footer px-3 py-4">
+            <div class="bg-light-info buynow-card mb-0 mt-3 w-100"> 
+                {% if bdm_email %}
+                    {% with '/static/assets/images/users/'|add:bdm_email|add:'.png' as file_path %}
+                        {% if file_path|file_exists %}
+                            <img src='{% static 'assets/images/users/'|add:bdm_email|add:'.png' %}' class="mt-n5 buynow-img">
+                        {% else %}
+                            <img src='{% static 'assets/images/background/sidebar-buynow.png' %}' class="mt-n5 buynow-img">
+                        {% endif %}
+                    {% endwith %}
+                {% else %}
+                    <img src='{% static 'assets/images/background/sidebar-buynow.png' %}' class="mt-n5 buynow-img">
+                {% endif %}
+                <!-- <img src='{% static 'assets/images/background/sidebar-buynow.png' %}' class="mt-n5 buynow-img"> -->
+                <div class="sidebar-footer-text">
+                    <h4 class="fw-bold">Have a</h5>
+                    <h4 class="fw-bold">Question?</h5>
+                    <button type="button" class="btn btn-primary mt-2 px-4 fs-4" data-bs-toggle="modal" data-bs-target="#contact-us-popup">
+                        Contact Your BDM
+                    </button>
+                </div>                    
+            </div>
+        </div>
+    {% endif %}
+    <!-- End Bottom points-->
+</aside>

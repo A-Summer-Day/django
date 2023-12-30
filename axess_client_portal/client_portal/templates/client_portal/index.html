@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+
+{% block css_files %}
+<link rel='stylesheet' href='{% static 'client_portal/dashboard.css' %}'>
+{% endblock css_files %}
+
+{% block content %}
+<div id="main-wrapper">
+    {% include 'includes/header.html' %}
+    {% include 'includes/sidebar.html' %}
+    {% if user.is_superuser %}
+        {% include 'client_portal/partials/admin_dashboard.html' %}
+    {% elif user.is_business_partner %} 
+        {% include 'client_portal/partials/business_partner_dashboard.html' %}
+    {% elif user.is_client %} 
+        {% include 'client_portal/partials/client_dashboard.html' %}
+    {% elif user.is_employee %} 
+        {% include 'client_portal/partials/employee_dashboard.html' %}
+    {% endif %}
+</div>
+{% include 'includes/footer_scripts.html' %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log('ready');
+        var options = {
+            series: [{{ number_of_completed_tasks }} , {{ number_of_open_tasks }}],
+            chart: {
+                fontFamily: '"Poppins", sans-serif',
+                width: 170,
+                type: "pie",
+                height: 170
+            },
+            colors: ["#f6871f", "#e0e8f5"],
+            labels: ["Completed", "Open"],
+            legend: {
+                show: false,
+            },
+            dataLabels: {
+                style: {
+                    colors: ['#ffffff', '#000000'],
+                    fontSize: '10px'
+                },
+                formatter: function(val, opts) {
+                    return [val + "% ", opts.w.globals.labels[opts.seriesIndex]]
+                }, 
+            },
+            tooltip: {
+                enabled: false
+            },
+            hover: {mode: null},
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        offset: -18,
+                    }, 
+                    
+                }
+            },
+            states: {
+                hover: {
+                    filter: {
+                        type: 'none'
+                    }
+                }
+            },
+        };
+        var optionsMobile = {
+            series: [{{ number_of_completed_tasks }} , {{ number_of_open_tasks }}],
+            chart: {
+                fontFamily: '"Poppins", sans-serif',
+                width: 120,
+                type: "pie",
+                height: 120
+            },
+            colors: ["#f6871f", "#e0e8f5"],
+            labels: ["Completed", "Open"],
+            legend: {
+                show: false,
+            },
+            dataLabels: {
+                style: {
+                    colors: ['#ffffff', '#000000'],
+                    fontSize: '10px'
+                },
+                formatter: function(val, opts) {
+                    return [val + "% ", opts.w.globals.labels[opts.seriesIndex]]
+                }, 
+            },
+            tooltip: {
+                enabled: false
+            },
+            hover: {mode: null},
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        offset: -18,
+                    }, 
+                    
+                }
+            },
+            states: {
+                hover: {
+                    filter: {
+                        type: 'none'
+                    }
+                }
+            },
+        };
+        var chart = new ApexCharts(document.querySelector("#transaction-percentage-completed-pie-chart"), options);
+        var chartMobile = new ApexCharts(document.querySelector("#transaction-percentage-completed-pie-chart-mobile"), optionsMobile);
+        console.log(options);
+
+        chart.render(); 
+        chartMobile.render();
+    }); 
+</script>
+
+{% endblock content %}

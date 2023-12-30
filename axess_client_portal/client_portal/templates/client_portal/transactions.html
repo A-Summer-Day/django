@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block title %}
+Transactions
+{% endblock title %}
+
+{% block css_files %}
+<link rel='stylesheet' href='{% static 'client_portal/dashboard.css' %}'>
+{% endblock css_files %}
+
+{% block content %}
+<div id="main-wrapper">
+    {% include 'includes/header.html' %}
+    {% include 'includes/sidebar.html' %}
+    <div class="page-wrapper" style="background-color: #f7f7fa;">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-titles new-template">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                    <div>
+                        <a href="/" class="link current-page-name"><i data-feather="arrow-left"></i></i></a> 
+                        <span href="/" class="link current-page-name">Transactions</span>
+                        {% comment %} <h1 class="mb-0 fw-bold"><a href="/" class="link">Transactions</a></h1>        {% endcomment %}
+                    </div>
+                    <div style="padding-left: 50px;" class="hide-in-mobile-view">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 d-flex align-items-center">
+                                {% comment %} <li class="breadcrumb-item"><a href="/" class="link"><i class="ri-home-3-line fs-5"></i></a></li> {% endcomment %}
+                                <li class="breadcrumb-item" style="padding-right: 0.5rem;"><a href="/" class="link">Dashboard</a></li> 
+                                | <li class="breadcrumb-item active" style="color: #384364; font-weight: 600;" aria-current="page">Transactions</li>
+                            </ol>
+                        </nav>  
+                    </div>               
+                </div>
+                <div class="col-lg-4 col-md-6 text-right hide-in-mobile-view">
+                    {% comment %} {% now "F d, Y" %} {% endcomment %}
+                    {% if not user.is_client %}
+                        {% comment %} <a href='{% url 'client_portal:file' %}' class="btn btn-info d-flex align-items-center ms-2">
+                            <i class="ri-add-line me-1"></i>
+                            Start a File
+                        </a> {% endcomment %}
+                    {% endif %}
+                    <span class="last-updated-description">Last Updated</span>
+                    <span class="last-updated-date">{% now "F d, Y" %}</span>
+                    {% comment %} <span class="last-updated-date">{{ most_recent_transaction.Opportunity.LastModifiedDate|sfdc_datetime_to_datetime|date:"D, jS F Y" }} </span> {% endcomment %}
+                </div>
+                <div class="col-lg-4 col-md-6 hide-in-desktop-view" style="margin-left: 50px;">
+                    <span class="last-updated-description">Last Updated</span>
+                    <span class="last-updated-date">{% now "F d, Y" %}</span>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- -------------------------------------------------------------- -->
+            <!-- Start Page Content -->
+            <!-- -------------------------------------------------------------- -->
+            <div class="row">
+                <div class="col-12 transacions-page" style="">
+                    <div class="">
+                        <div class="">
+                            {% if error %}
+                                <span class="last-transaction-description">{{ error }}</span>
+                            {% else %}
+                                <div class="d-flex justify-content-start hide-in-mobile-view" id="transactions-card-wrapper">
+                            
+                                    <div class="transactions-card-total-open transactions-page d-flex">
+                                        <div>
+                                            <span class="transactions-card-total-open-number">{{ total_open_transactions|percentage_of:total_transactions }}%</span>
+                                            <br>
+                                            <span class="transactions-card-total-open-description">Open</span>
+                                        </div>
+                                        <div class="transactions-card-total-open-oval">
+                                            <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                                <path class="circle-bg"
+                                                d="M18 2.0845
+                                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                />
+                                                <path class="circle"
+                                                stroke-dasharray="{{ total_open_transactions|percentage_of:total_transactions }}, 100"
+                                                d="M18 2.0845
+                                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                />
+                                                <text x="18" y="20.35" class="percentage">{{ total_open_transactions|percentage_of:total_transactions }}%</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="transactions-card-total-completed transactions-page d-flex">
+                                        <div>
+                                            <span class="transactions-card-total-completed-number">
+                                                {{ total_completed_transactions|percentage_of:total_transactions }}%
+                                            </span>
+                                            <br>
+                                            <span class="transactions-card-total-completed-description">Completed</span>
+                                        </div>
+                                        <div class="transactions-card-total-completed-oval">
+                                            <svg viewBox="0 0 36 36" class="circular-chart green">
+                                                <path class="circle-bg"
+                                                d="M18 2.0845
+                                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                />
+                                                <path class="circle"
+                                                stroke-dasharray="{{ total_completed_transactions|percentage_of:total_transactions }}, 100"
+                                                d="M18 2.0845
+                                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                />
+                                                <text x="18" y="20.35" class="percentage">{{ total_completed_transactions|percentage_of:total_transactions }}%</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="mr-2">Filter</label>
+                                    <select name="broker_name" id="broker_name_filter">
+                                        <option value="" selected disabled hidden>Broker Name</option>
+                                        {% for broker in brokers %}
+                                            <option value="{{ broker.Id }}">{{ broker.Name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <select name="status" id="status_filter">
+                                        <option value="" selected disabled hidden>Status</option>
+                                        <option value="Open">Open</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+                                    <select name="transaction_type" id="transaction_type_filter">
+                                        <option value="" selected disabled hidden>Transaction Type</option>
+                                        <option value="Purchase">Purchase</option>
+                                        <option value="Refi">Refi</option>
+                                        <option value="Ila">ILA</option>
+                                    </select>
+                                    <a class="btn btn-primary btn-sm ml-3" id="apply_transactions_filter" href="javascript:;" type="submit">Apply</a>
+                                </div>
+                               
+                                <div class="table-responsive hide-in-mobile-view" style="border-radius: 16px!important; border: solid 1px rgba(205, 208, 227, 0.29);">
+                                    
+                                    <table class="table mb-0 text-nowrap varient-table align-middle fs-3 stack-table" id="transactions-table">
+                                    {% comment %} <table class="tablesaw no-wrap table-hover tablesaw-stack">  {% endcomment %}
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="px-0 text-muted" style="padding-left: 10px!important">Property</th>
+                                                <th scope="col" class="px-0 text-muted">Closing Date</th>
+                                                <th scope="col" class="px-0 text-muted">Stage</th>
+                                                <th scope="col" class="px-0 text-muted">Progress</th>
+                                                {% if user.is_client %}
+                                                    <th scope="col" class="px-0 text-muted">Clerk Name</th>
+                                                {% else %}
+                                                    <th scope="col" class="px-0 text-muted">Client Name</th>
+                                                {% endif %}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- For each in 5 recent items-->
+                                            {% for transaction in transactions %}
+                                                <tr>
+                                                    <td class="px-0" style="padding-left: 10px!important">
+                                                        <div class="d-flex align-items-center">
+                                                            {% comment %} <img src='{% static 'assets/images/users/1.jpg' %}' class="rounded-circle" width="35"> {% endcomment %}
+                                                            {% if transaction.Opportunity.Clerk_Assigned_Email_Address__c %}
+                                                                {% with '/static/assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' as file_path %}
+                                                                    {% if file_path|file_exists %}
+                                                                        <img src='{% static 'assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' %}' width="35" class="rounded-circle" alt="user">
+                                                                    {% else %}
+                                                                        <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                                    {% endif %}
+                                                                {% endwith %}
+                                                            {% else %}
+                                                                <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                            {% endif %}
+                                                            <div class="ms-3">
+                                                                <h6 class="mb-0 fw-bold transaction-name"><a style="color:#384364;" href='{{ request.scheme }}://{{ request.get_host }}/transactions/{{ transaction.Opportunity.Id }}'>{{ transaction.Opportunity.Name }}</a></h6>
+                                                                {% comment %} <span class="text-muted fs-9">{{ transaction.Opportunity.RecordType.Name }}</span> {% endcomment %}
+                                                                <span class="text-muted fs-9">{{ transaction.portal_transaction_type }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-0 text-dark font-weight-medium">{{ transaction.Opportunity.CloseDate|string_to_datetime|date:"d/m/Y" }}</td>
+                                                    <td class="px-0">
+                                                        {{ transaction.Opportunity.Milestone__c }}
+                                                        {% comment %} <span class="badge bg-{% if transaction.Opportunity.StageName == 'Closed Lost' %}danger{% elif transaction.Opportunity.StageName == 'Closed Won' %}success{% else %}info{% endif %}">{% if transaction.Opportunity.StageName == 'Closed Lost' or transaction.Opportunity.StageName == 'Closed Won' %}Closed{% else %}{{ transaction.Opportunity.StageName }}{% endif %}</span> {% endcomment %}
+                                                    </td>
+                                                    <td class="px-0">
+                                                        {% comment %} {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %} {% endcomment %}
+                                                        <div class="" style="max-width: 60%;">
+                                                            <div class="progress mt-2" style="height: 7px;" data-bs-toggle="tooltip" title="{% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %}">
+                                                                <div class="progress-bar" role="progressbar" style="background-color: #7ad4bb; width: {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100%{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%{% endif %}" aria-valuenow="{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress-bar-description">
+                                                                {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}<span class="" style="color:#469105;">Done</span>{% else %}<span class="" style="color:#469105;">{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%</span>  Completed{% endif %}
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                    {% if user.is_client %}
+                                                        <td class="px-0">{{ transaction.Opportunity.Clerk_Assigned_Full_Name__c }}</td>
+                                                    {% else %}
+                                                        <td class="px-0">{{ transaction.Opportunity.Client_on_File__c }}</td>
+                                                    {% endif %}
+                                                    
+                                                </tr>
+                                            {% endfor %} 
+                                            <!-- End For Loop-->
+                                        </tbody>
+                                    </table>
+                                    
+
+                                    {% comment %} <table class="table mb-0 text-nowrap varient-table align-middle fs-3 stack-table-mobile" style="display: none;">
+                                        <tbody>
+                                            <!-- For each in 5 recent items-->
+                                            {% for transaction in transactions %}
+                                                <tr class="ps-3">
+                                                    <td class="">
+                                                        <div class="d-flex align-items-center">
+                                                            <img src='{% static 'assets/images/users/1.jpg' %}' class="rounded-circle" width="35"> 
+                                                            {% if transaction.Opportunity.Clerk_Assigned_Email_Address__c %}
+                                                                {% with '/static/assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' as file_path %}
+                                                                    {% if file_path|file_exists %}
+                                                                        <img src='{% static 'assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' %}' width="35" class="rounded-circle" alt="user">
+                                                                    {% else %}
+                                                                        <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                                    {% endif %}
+                                                                {% endwith %}
+                                                            {% else %}
+                                                                <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                            {% endif %}
+                                                            <div>
+                                                                <span class="transaction-description-mobile">Property</span>
+                                                                <h6 class="mb-0 fw-bold transaction-name-mobile"><a href='{{ request.scheme }}://{{ request.get_host }}/transactions/{{ transaction.Opportunity.Id }}'>{{ transaction.Opportunity.Name }}</a></h6>
+                                                                <span class="text-muted fs-9 transaction-type-mobile">{{ transaction.portal_transaction_type }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    {% if user.is_client %}
+                                                        <td class="">
+                                                            <span class="transaction-description-mobile">Clerk Name</span>
+                                                            <br> 
+                                                            <span>{{ transaction.Opportunity.Clerk_Assigned_Full_Name__c }}</span>
+                                                        </td>
+                                                    {% else %}
+                                                        <td class="">
+                                                            <span class="transaction-description-mobile">Client Name</span>
+                                                            <br> 
+                                                            <span> {{ transaction.Opportunity.Client_on_File__c }}</span>
+                                                        </td>
+                                                    {% endif %}
+                                                    <td class="text-dark font-weight-medium">
+                                                        <span class="transaction-description-mobile">Close Date</span>
+                                                        <br> 
+                                                        <span class="transaction-date-mobile">{{ transaction.Opportunity.CloseDate|string_to_datetime|date:"M d, Y" }}
+                                                        </span>
+                                                    </td>
+                                                    <td class="d-flex">
+                                                        <div>
+                                                            <span class="transaction-description-mobile">Stage</span>
+                                                            <br>
+                                                            <span class="transaction-name-mobile">{{ transaction.Opportunity.Milestone__c }}</span>
+                                                        </div>
+                                                        <div style="width: 100%;">
+                                                            <div class="progress mt-2" data-bs-toggle="tooltip" title="{% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %}">
+                                                                <div class="progress-bar" role="progressbar" style="background-color: #7ad4bb; width: {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100%{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%{% endif %}" aria-valuenow="{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %} 
+                                            <!-- End For Loop-->
+                                        </tbody>
+                                    </table> {% endcomment %}
+                                </div>
+                                <div class="hide-in-desktop-view">
+                                    {% for transaction in transactions %}
+                                        <div class="card w-100 overflow-hidden">
+                                            <div class="card-body">
+                                                <div class="">
+                                                    <div>
+                                                        <span class="transaction-description-mobile">Property</span>
+                                                        <h6 class="mb-0 fw-bold transaction-name-mobile"><a href='{{ request.scheme }}://{{ request.get_host }}/transactions/{{ transaction.Opportunity.Id }}'>{{ transaction.Opportunity.Name }}</a></h6>
+                                                        <span class="text-muted fs-9 transaction-type-mobile">{{ transaction.portal_transaction_type }}</span>
+                                                    </div>
+                                                    {% if user.is_client %}
+                                                        <div class="">
+                                                            <span class="transaction-description-mobile">Clerk Name</span>
+                                                            <br> 
+                                                            <span>{{ transaction.Opportunity.Clerk_Assigned_Full_Name__c }}</span>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="">
+                                                            <span class="transaction-description-mobile">Client Name</span>
+                                                            <br> 
+                                                            <span> {{ transaction.Opportunity.Client_on_File__c }}</span>
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="text-dark font-weight-medium">
+                                                        <span class="transaction-description-mobile">Close Date</span>
+                                                        <br> 
+                                                        <span class="transaction-date-mobile">{{ transaction.Opportunity.CloseDate|string_to_datetime|date:"M d, Y" }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div style="width: 50%;">
+                                                            <span class="transaction-description-mobile">Stage</span>
+                                                            <br>
+                                                            <span class="transaction-name-mobile">{{ transaction.Opportunity.Milestone__c }}</span>
+                                                        </div>
+                                                        <div style="width: 50%;">
+                                                            <span class="transaction-description-mobile">Progress</span>
+                                                            <br>
+                                                            <div class="progress mt-2" data-bs-toggle="tooltip" title="{% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %}">
+                                                                <div class="progress-bar" role="progressbar" style="background-color: #7ad4bb; width: {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100%{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%{% endif %}" aria-valuenow="{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress-bar-description">
+                                                                {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}<span class="" style="color:#469105;">Done</span>{% else %}<span class="" style="color:#469105;">{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%</span>  Completed{% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div>
+                                <nav aria-label="..." class="mt-4 float-right">
+                                {% if transactions.has_other_pages %}
+                            
+                                    <ul class="pagination">
+                                        {% if transactions.has_previous %}
+                                            {% comment %} <li class="page-item previous"><a class="page-link" href="{{ transactions.previous_page_number }}">Previous</a></li> {% endcomment %}
+                                            {% comment %} <li class="page-item previous"><a class="page-link" href="?{% url_replace page=transactions.previous_page_number %}">Previous</a></li> {% endcomment %}
+                                            <li class="page-item next"><a class="page-link" href="?{% url_replace request 'page' transactions.previous_page_number %}">Previous</a></li>
+                                        {% else %}
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">Previous</a>
+                                            </li>
+                                        {% endif %}
+                                        {% if transactions.number|add:'-2' > 1 %}
+                                            <li><a href="?page={{ transactions.number|add:'-3' }}">&hellip;</a></li>
+                                        {% endif %}
+
+                                        {% for i in transactions.paginator.page_range %}
+                                            {% if transactions.number == i %}
+                                            <li class="page-item active"><a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
+                                            {% elif i > transactions.number|add:'-3' and i < transactions.number|add:'3' %}
+                                            <li class="page-item"><a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if transactions.paginator.num_pages > transactions.number|add:'2' %}
+                                        <li><a href="?page={{ transactions.number|add:'3' }}">&hellip;</a></li>
+                                        {% endif %}
+                                        {% comment %} {% for i in transactions.paginator.page_range %}
+                                            
+                                            {% elif transactions.number == i %}
+                                                 <li class="page-item active" aria-current="page">
+                                                    <a class="page-link" href="javascript:;">{{ i }}</a>
+                                                </li>
+                                            {% else %}
+                                                <li class="page-item"><a class="page-link" href="?{% url_replace page=i %}">{{ i }}</a></li>
+                                            {% endif %}
+                                        {% endfor %} {% endcomment %}
+                                        {% if transactions.has_next %}
+                                            {% comment %} <li class="page-item next"><a class="page-link" href="{{ transactions.next_page_number }}">Next</a></li> {% endcomment %}
+                                            {% comment %} <li class="page-item next"><a class="page-link" href="?{% url_replace page=transactions.next_page_number %}">Next</a></li> {% endcomment %}
+                                            <li class="page-item next"><a class="page-link" href="?{% url_replace request 'page' transactions.next_page_number %}">Next</a></li>
+                                        {% else %}
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">Next</a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                
+                                {% endif %}
+                                </nav></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------- -->
+            <!-- End Page Content -->
+            <!-- -------------------------------------------------------------- -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+
+        {% include 'includes/footer.html' %}
+    </div>
+</div>
+{% include 'includes/footer_scripts.html' %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log('transactions page ready');
+        let url = new URL(location.href);
+        let searchParams = new URLSearchParams(url.search);
+        let broker = searchParams.get('broker');
+        console.log('broker: ' + broker);
+        if(broker) {
+            $('#broker_name_filter').val(broker);
+            //$('select[name="broker_name"] option[value="title"]').prop('selected', true);
+        }
+        let status = searchParams.get('status');
+        console.log('status: ' + status);
+        if(status) {
+            $('#status_filter').val(status);
+            //$('select[name="status"] option[value="title"]').prop('selected', true);
+        }
+        let type = searchParams.get('type');
+        console.log('type: ' + type);
+        if(type) {
+            $('#transaction_type_filter').val(type);
+            //$('select[name="transaction_type"] option[value="title"]').prop('selected', true);
+        }
+        let page = searchParams.get('page');
+        console.log('page: ' + page);
+    }); 
+</script>
+{% endblock content %}

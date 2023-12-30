@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Task Details
+{% endblock title %}
+
+{% block css_files %}
+<link rel='stylesheet' href='{% static 'client_portal/dashboard.css' %}'>
+{% endblock css_files %}
+
+{% block content %}
+<div id="main-wrapper">
+    {% include 'includes/header.html' %}
+    {% include 'includes/sidebar.html' %}
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-titles">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 d-flex align-items-center">
+                            <li class="breadcrumb-item"><a href="/" class="link"><i class="ri-home-3-line fs-5"></i></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="/tasks/" class="link">Tasks</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ transaction.Name }}</li>
+                        </ol>
+                    </nav>
+                    <h1 class="mb-0 fw-bold">{{ transaction.Name }}</h1>                        
+                </div>
+                <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
+                    {% now "F d, Y" %}
+                    {% if not user.is_client %}
+                        {% comment %} <a href='{% url 'client_portal:file' %}' class="btn btn-info d-flex align-items-center ms-2">
+                            <i class="ri-add-line me-1"></i>
+                            Start a File
+                        </a> {% endcomment %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- -------------------------------------------------------------- -->
+            <!-- Start Page Content -->
+            <!-- -------------------------------------------------------------- -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            Task detail page for Transaction <b>{{ transaction.Name }}</b></br>
+                            Transaction Id: {{ opportunity_id }}</br></br></br>
+                            {% if error %}
+                                {{ error }}
+                            {% else %}
+                                {% for task in tasks %}
+                                    Task Name: {{ task.WhoId }}</br>
+                                    Task Subject: {{ task.Subject }}</br>
+                                    Task Status: {{ task.Status }}</br></br></br>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------- -->
+            <!-- End PAge Content -->
+            <!-- -------------------------------------------------------------- -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+
+        {% include 'includes/footer.html' %}
+    </div>
+</div>
+{% include 'includes/footer_scripts.html' %}
+{% endblock content %}

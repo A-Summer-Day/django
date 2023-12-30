@@ -1,0 +1,97 @@
+{% load static %}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-titles">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                <div><span class="welcome">Welcome</span> <span class="welcome-name">{{ user.first_name }}</span></div>
+                {% comment %} <h1 class="mb-0 fw-bold">
+                    Employee Dashboard
+                </h1> {% endcomment %}
+                <span class="account-summary">
+                    Your account summary as on {% now "D, jS F Y" %}
+                </span>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
+                {% comment %} {% now "F d, Y" %} {% endcomment %}
+                {% comment %} <a href='{% url 'client_portal:file' %}' class="btn btn-info d-flex align-items-center ms-2">
+                    <i class="ri-add-line me-1"></i>
+                    Start a File
+                </a> {% endcomment %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'client_portal/partials/messages.html' %}
+    
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-3">
+                <div class="d-flex align-items-stretch">
+                    <!-- earnings card -->
+                    <div class="card bg-primary w-100" id="blue-box-outstanding-tasks">
+                        <div class="card-body card-hover">
+                            <a href='{% url 'client_portal:tasks' %}'>
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title text-white">Tasks</h4>
+                                    <div class="ms-auto">
+                                        <span class="btn btn-lg btn-info btn-circle d-flex align-items-center justify-content-center">
+                                            <i data-feather="check-circle"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h2 class="fs-8 text-white mb-0">{{ transactions_with_tasks_outstanding }}</h2>
+                                    <span class="text-white op-5">Transactions with Tasks outstanding</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-stretch" style="display:none!important;">
+                    <!-- monthly sales card -->
+                    <div class="card w-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h5 class="fw-normal mb-0 text-muted">Monthly Sales</h5>
+                                    <h2 class="mb-0">3246</h2>
+                                </div>
+                                <div class="ms-auto">
+                                    <span class="btn btn-lg btn-warning btn-circle d-flex align-items-center justify-content-center">
+                                        <i data-feather="shopping-bag"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- chart -->
+                        <div id="monthly-sales"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE RIGHT -->
+            
+            {% include 'client_portal/partials/recent_transactions_table.html' %}
+
+        </div>
+        <!-- Row -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+
+    {% include 'includes/footer.html' %}
+</div>

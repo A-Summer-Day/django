@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Log Out
+{% endblock %}
+
+{% block css_files %}
+    {% comment %} <link rel='stylesheet' href='{% static 'users/dashboard.css' %}'> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+    <div class="border-top pt-3 container">
+        <h2>You have been logged out</h2>
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock %}

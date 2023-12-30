@@ -1,0 +1,255 @@
+// predefined bg color of navbar logo bg
+#main-wrapper .topbar .top-navbar .navbar-header {
+  background: $skin6;
+}
+
+// Theme colors
+#main-wrapper {
+  &[data-layout="vertical"],
+  &[data-layout="horizontal"] {
+    /*This is for the logo bg*/
+    .topbar .top-navbar .navbar-header {
+      &[data-logobg="skin1"] {
+        background: $skin1;
+      }
+
+      &[data-logobg="skin2"] {
+        background: $skin2;
+      }
+
+      &[data-logobg="skin3"] {
+        background: $skin3;
+      }
+
+      &[data-logobg="skin4"] {
+        background: $skin4;
+      }
+
+      &[data-logobg="skin5"] {
+        background: $skin5;
+      }
+
+      &[data-logobg="skin6"] {
+        background: $skin6;
+
+        .navbar-brand {
+          .dark-logo {
+            display: inline;
+          }
+
+          .light-logo {
+            display: none;
+          }
+        }
+
+        .nav-toggler,
+        .topbartoggler {
+          color: $body-color;
+        }
+      }
+    }
+
+    .topbar .navbar-collapse,
+    .topbar {
+      &[data-navbarbg="skin1"] {
+        background: $skin1;
+      }
+
+      &[data-navbarbg="skin2"] {
+        background: $skin2;
+      }
+
+      &[data-navbarbg="skin3"] {
+        background: $skin3;
+      }
+
+      &[data-navbarbg="skin4"] {
+        background: $skin4;
+      }
+
+      &[data-navbarbg="skin5"] {
+        background: $skin5;
+      }
+
+      &[data-navbarbg="skin6"] {
+        background: rgba($color: $skin6, $alpha: 0.5);
+        .top-navbar {
+          .navbar-header {
+            border-right: 1px solid $border-color;
+          }
+        }
+        .navbar-nav > .nav-item.profile-dropdown {
+          &:before {
+            background: $border-color;
+          }
+          .nav-link {
+            .text-dark {
+              color: $navbar-light-hover-color !important;
+            }
+          }
+        }
+      }
+    }
+
+    .topbar .navbar-collapse {
+      &[data-navbarbg="skin5"] {
+        background: $skin51;
+      }
+    }
+
+    /*This is for the sidebar bg*/
+    .left-sidebar {
+      &[data-sidebarbg="skin1"],
+      &[data-sidebarbg="skin1"] ul {
+        background: $skin1;
+        .sidebar-footer {
+          background: $skin1;
+        }
+      }
+
+      &[data-sidebarbg="skin2"],
+      &[data-sidebarbg="skin2"] ul {
+        background: $skin2;
+        .sidebar-footer {
+          background: $skin2;
+        }
+      }
+
+      &[data-sidebarbg="skin3"],
+      &[data-sidebarbg="skin3"] ul {
+        background: $skin3;
+        .sidebar-footer {
+          background: $skin3;
+        }
+      }
+
+      &[data-sidebarbg="skin4"],
+      &[data-sidebarbg="skin4"] ul {
+        background: $skin4;
+        .sidebar-footer {
+          background: $skin4;
+        }
+      }
+
+      &[data-sidebarbg="skin5"] {
+        background: $skin5;
+        .sidebar-footer {
+          background: $skin5;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-nav {
+          ul {
+            background: $skin5;
+
+            .nav-small-cap {
+              opacity: 0.7;
+            }
+
+            .sidebar-item {
+              &.selected > .sidebar-link {
+                background-color: $primary;
+              }
+            }
+          }
+        }
+      }
+
+      &[data-sidebarbg="skin6"] {
+        background: $skin6;
+        .sidebar-footer {
+          background: $skin6;
+        }
+        .sidebar-nav {
+          > ul > .sidebar-item > .sidebar-link.active {
+            // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: $blue;
+            color: $white !important;
+            opacity: 1;
+            font-weight: 400;
+            i {
+              color: $white !important;
+            }
+            &:after {
+              border-color: $white;
+            }
+          }
+          ul {
+            background: $skin6;
+            .nav-small-cap {
+              color: $sidebar-cap-dark;
+              .nav-small-line {
+                background-color: $sidebar-cap-dark;
+              }
+            }
+            .sidebar-item {
+              .sidebar-link {
+                color: $sidebar-text-dark;
+                opacity: 1;
+                i,
+                .feather {
+                  color: $sidebar-icons-dark;
+                }
+                &:hover {
+                  color: $gray-800;
+                  i,
+                  .feather {
+                    color: $gray-800;
+                  }
+                }
+                &.active {
+                  color: $gray-900;
+                  > .feather {
+                    color: $white;
+                  }
+                }
+              }
+              &.selected > .sidebar-link {
+                color: $white;
+                background-color: $blue;
+                i,
+                .feather {
+                  color: $white;
+                }
+                &.has-arrow {
+                  &::after {
+                    border-color: $white;
+                  }
+                }
+                &:hover {
+                  i,
+                  .feather {
+                    color: $white;
+                  }
+                }
+              }
+            }
+          }
+          .has-arrow {
+            &::after {
+              border-color: $sidebar-text-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #main-wrapper[data-layout="vertical"]
+    .topbar
+    .navbar-collapse[data-navbarbg="skin6"] {
+    background: $skin6;
+  }
+}
+
+#main-wrapper {
+  &[data-layout="horizontal"] {
+    .topbar .navbar-collapse,
+    .topbar {
+      &[data-navbarbg="skin6"] {
+        background: $skin6;
+      }
+    }
+  }
+}

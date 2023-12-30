@@ -1,0 +1,394 @@
+{% load static %}
+{% load filters %}
+{% load mathfilters %}
+
+<div class="page-wrapper" style="background-color: #f7f7fa;">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-titles">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                <div class="mb-2"><span class="welcome">Welcome</span> <span class="welcome-name">{{ user.first_name }}</span></div>
+                {% comment %} <h1 class="mb-0 fw-bold">
+                    Business Partner Dashboard
+                </h1> {% endcomment %}
+                <span class="account-summary">
+                    Your account summary as on {% now "D, jS F Y" %}
+                </span>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
+                {% comment %} {% now "F d, Y" %} {% endcomment %}
+                {% comment %} <a href='{% url 'client_portal:file' %}' class="btn btn-info d-flex align-items-center ms-2">
+                    <i class="ri-add-line me-1"></i>
+                    Start a File
+                </a> {% endcomment %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'client_portal/partials/messages.html' %}
+    
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid" style="padding-top: unset;">
+        <!-- Row -->
+        <div class="row"  style="max-width: 100%;">
+            <!-- Column -->
+
+            <div class="clients-card d-flex">
+                <div class="clients-card-left">
+                    <span class="clients-card-header">Clients</span>
+                    <div><span class="clients-card-total">16</span>
+                    <span class="clients-card-description">Total Clients you are working With</span></div>
+                </div>
+                <div class="clients-card-right d-flex align-items-end" style="font-size: x-large; color: white; margin-bottom: 10px;"><i class="fas fa-arrow-alt-circle-right"></i></div>
+            </div>
+            <div class="clerks-card d-flex">
+                <div class="clerks-card-left">
+                    <span class="clerks-card-header">Clerks</span>
+                    <span class="clerks-card-total">4</span>
+                    <span class="clerks-card-description">Total Clerks working for Clients</span>
+                </div>
+                <div class="clients-card-right d-flex align-items-end" style="font-size: x-large; color: #2d69f6; margin-bottom: 10px;"><i class="fas fa-arrow-alt-circle-right"></i></div>
+            </div>
+            <div class="appointments-card d-flex">
+                <div class="appointments-card-left">
+                    <span class="appointments-card-header">Appointments</span>
+                    <span class="appointments-card-total">12</span>
+                    <span class="appointments-card-description">Upcoming Appointments</span>
+                </div>
+                <div class="clients-card-right d-flex align-items-end" style="font-size: x-large; color: white; margin-bottom: 10px;"><i class="fas fa-arrow-alt-circle-right"></i></div>
+            </div>
+            
+            {% if no_recent_transactions %}
+                <span class="last-transaction-description">{{ error }}</span>
+            {% else %}
+                <div class="transactions-card d-flex" id="transactions-card-mobile" style="width:320px;">
+                    <div class="transactions-card-left">
+                        <span class="transactions-card-header">Transactions</span>
+                        <br>
+                        <span class="transactions-card-total">{{ total_transactions }}</span>
+                        <span class="transactions-card-description">Total Transactions in your account</span>
+                    </div>
+                    <div class="clients-card-right d-flex align-items-end" style="font-size: x-large; color: white; margin-bottom: 10px;">
+                        <i class="fas fa-arrow-alt-circle-right"><a href="/transactions/" class=""></a></i>
+                    </div>
+                </div>
+                <div class="transactions-card d-flex" id="transactions-card-desktop">
+                    <div class="transactions-card-left d-flex">
+                        <div class="transactions-card-left-left">
+                            <span class="transactions-card-header">Transactions</span>
+                            <div>
+                                <span class="transactions-card-total">{{ total_transactions }}</span>
+                                <span class="transactions-card-description">Total Transactions in your account</span>
+                            </div>
+                        </div>
+                        <div class="clients-card-right d-flex align-items-end" style="font-size: x-large; color: white; margin-bottom: 10px;">
+                            {% comment %} <i class="fas fa-arrow-alt-circle-right"></i> 
+                            <a href="/transactions/" class=""><i class="fas fa-arrow-alt-circle-right"></i></a>{% endcomment %}
+                            <i class="fas fa-arrow-alt-circle-right"><a href="/transactions/" class=""></a></i>
+                        </div>
+                    </div>
+                    <div class="transactions-card-right d-flex justify-content-evenly">
+                        
+                        <div class="transactions-card-total-open d-flex">
+                            <div>
+                                <span class="transactions-card-total-open-number">{{ total_open_transactions|percentage_of:total_transactions }}%</span>
+                                <br>
+                                <span class="transactions-card-total-open-description">Open</span>
+                            </div>
+                            <div class="transactions-card-total-open-oval">
+                                <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                    <path class="circle-bg"
+                                    d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                    stroke-dasharray="{{ total_open_transactions|percentage_of:total_transactions }}, 100"
+                                    d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{ total_open_transactions|percentage_of:total_transactions }}%</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="transactions-card-total-completed d-flex">
+                            <div>
+                                <span class="transactions-card-total-completed-number">
+                                    {{ total_completed_transactions|percentage_of:total_transactions }}%
+                                </span>
+                                <br>
+                                <span class="transactions-card-total-completed-description">Completed</span>
+                            </div>
+                            <div class="transactions-card-total-completed-oval">
+                                <svg viewBox="0 0 36 36" class="circular-chart green">
+                                    <path class="circle-bg"
+                                    d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                    stroke-dasharray="{{ total_completed_transactions|percentage_of:total_transactions }}, 100"
+                                    d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{ total_completed_transactions|percentage_of:total_transactions }}%</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="last-transaction-description">Last Transaction</span>
+                <div class="last-transaction" id="last-transaction-desktop">
+                    <div class="last-transaction-overview d-flex justify-content-evenly" style="padding-bottom: 29.8px;">
+                        <div class="last-transaction-overview-left d-flex">
+                            <div>
+                                <div id="transaction-percentage-completed-pie-chart" style="height: 100px;"></div> 
+                            </div>
+                            <div class="transaction-overview">
+                                <div class="transaction-name">
+                                    <span class="transaction-name-description">Property Address</span>
+                                    <br>
+                                    <span class="transaction-name-name">
+                                        {{ most_recent_transaction.Opportunity.Name }}
+                                    </span>
+                                </div>
+                                <div class="d-flex mt-3">
+                                    <div class="portal-transaction-type">
+                                        <span class="portal-transaction-type-description">Deal Type</span>
+                                        <br>
+                                        <span class="portal-transaction-type-type">{{ most_recent_transaction_portal_type  }} </span>
+                                    </div>
+                                    <div class="closing-date">
+                                        <span class="closing-date-description">Closing Date</span>
+                                        <br>
+                                        <span class="closing-date-date">{{ most_recent_transaction.Opportunity.CloseDate|string_to_datetime|date:"D, jS F Y" }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="last-transaction-vertical-line" style="margin-bottom: -29.8px; width: 2px; background: #d9dce1;"></div>
+                        <div class="last-transaction-overview-righ text-right mt-2">
+                            <span class="last-updated-description">Last Updated</span>
+                            <span class="last-updated-date">{{ most_recent_transaction.Opportunity.LastModifiedDate|sfdc_datetime_to_datetime|date:"D, jS F Y" }} </span>
+                        </div>
+                    </div>
+                    <div class="last-transaction-horizontal-line" style="margin-top: 0px!important; margin-bottom: 38px;"></div>
+                    <div class="last-transaction-milestones d-flex align-items-center justify-content-between">
+                        {% for milestone in milestones %}
+                            <div class="last-transaction-milestone-item d-flex align-items-center justify-content-between {% if milestone == most_recent_transaction.Opportunity.Milestone__c %}active{% endif %} {% if forloop.counter <= current_milestone_index %}completed{% endif %}">
+                                <i style="margin-right: 8px; font-size: xx-large; {% if forloop.counter <= current_milestone_index %}color: #40bc3a;{% endif %}" class="ri-checkbox{% if forloop.counter <= current_milestone_index %}-fill{% else %}-blank-line{% endif %}"></i>
+                                <div style="margin-top: 8px; margin-bottom: 8px; font-size: small;" class="step-name">{{ milestone }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if number_of_completed_tasks > 0 and number_of_open_tasks > 0 %}
+                        <div class="last-transaction-horizontal-line" style="margin-top: 38px!important;"></div>
+                        <div class="last-transaction-table" style="margin-left: 29px;">
+                            <div class="users-tasks-header">
+                                Users Tasks
+                            </div>
+                            <table class="table user-tasks-table" style="">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="px-0 text-muted">Task</th>
+                                        <th scope="col" class="px-0 text-muted">Status</th>
+                                        <th scope="col" class="px-0 text-muted">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for task in completed_tasks %}
+                                        <tr>
+                                            <td class="user-tasks-table-task-name">{{ task }}</td>
+                                            <td class="text-success user-tasks-table-task-status" style="font-weight: bold;">Completed</td>
+                                            <td></td>
+                                        </tr>
+                                        
+                                    {% endfor %}
+                                    {% for task in open_tasks %}
+                                        <tr>
+                                            <td class="user-tasks-table-task-name">{{ task.label }}</td>
+                                            <td class="user-tasks-table-task-status" style="color: #f6871f;">Open</td>
+                                            <td class="user-tasks-table-task-action">
+                                                <i class="ri-file-upload-fill text-primary"></i>
+                                                <a class="open_document_upload_modal" href="javascript:;" data-bs-toggle="modal" data-bs-target="#document-upload-popup" data-transaction-id="{{ most_recent_transaction.Opportunity.Id }}" data-task-api="{{ task.api }}" data-task-value="{{ task.value }}">Upload</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    {% endif %}
+                
+                </div>
+                <div class="last-transaction mt-3" id="last-transaction-mobile">
+                    <div class="last-transaction-mobile-overview row justify-content-evenly" style="padding-bottom: 29.8px; padding-top: 17px;">
+                        <div class="last-transaction-mobile-overview-left col-5">
+                            <div>
+                                <div id="transaction-percentage-completed-pie-chart-mobile" style="height: 100px;"></div> 
+                            </div>
+                            <div style="padding-left: 10px; padding-top: 12px;">
+                                <span class="last-updated-description" style="margin-left: 3px;">Last Updated</span>
+                                <br>
+                                <span class="last-updated-date">{{ most_recent_transaction.Opportunity.LastModifiedDate|sfdc_datetime_to_datetime|date:"D, jS F Y" }} </span>
+                            </div>
+                        </div>
+                        <div class="last-transaction-mobile-overview-righ col-7">
+                            
+                            <div class="mobile-transaction-overview">
+                                <div class="portal-transaction-type">
+                                    <span class="portal-transaction-type-description" style="width: fit-content; margin-right: unset;">Deal Type</span>
+                                    <br>
+                                    <span class="portal-transaction-type-type">{{ most_recent_transaction_portal_type  }} </span>
+                                </div>
+                                <div class="transaction-name">
+                                    <span class="transaction-name-description" style="width: fit-content; margin-right: unset;">Property Address</span>
+                                    <br>
+                                    <span class="transaction-name-name">
+                                        {{ most_recent_transaction.Opportunity.Name }}
+                                    </span>
+                                </div>
+                                <div class="d-flex">
+                                    
+                                    <div class="closing-date">
+                                        <span class="closing-date-description">Closing Date</span>
+                                        <br>
+                                        <span class="closing-date-date">{{ most_recent_transaction.Opportunity.CloseDate|string_to_datetime|date:"D, jS F Y" }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="last-transaction-horizontal-line" style="margin-top: 0px!important; margin-bottom: 38px;"></div>
+                     <div class="last-transaction-mobile-milestones row" style="max-width: 100%; margin-left: 5px; margin-right: 5px;">
+                        {% for milestone in milestones %}
+                            <div class="last-transaction-milestone-item-mobile-wrapper">
+                                <div class="last-transaction-milestone-item-mobile d-flex align-items-center {% if milestone == most_recent_transaction.Opportunity.Milestone__c %}active{% endif %} {% if forloop.counter <= current_milestone_index %}completed{% endif %}"  style="width: 100%;">
+                                
+                                    <i style="margin-right: 8px; font-size: x-large; {% if forloop.counter <= current_milestone_index %}color: #40bc3a;{% endif %}" class="ri-checkbox{% if forloop.counter <= current_milestone_index %}-fill{% else %}-blank-line{% endif %}"></i>
+                                    <div style="font-size: x-small;" class="step-name">{{ milestone }}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div> 
+                    {% comment %}{% for milestone in milestones %}
+                        {% if forloop.counter|divisibleby:4 %}<div class="last-transaction-mobile-milestones row justify-content-around">{% endif %}
+                        
+                            <div class="last-transaction-milestone-item-mobile col d-flex align-items-center {% if milestone == most_recent_transaction.Opportunity.Milestone__c %}active{% endif %} {% if forloop.counter <= current_milestone_index %}completed{% endif %}">
+                                <i style="margin-right: 8px; font-size: x-large; {% if forloop.counter <= current_milestone_index %}color: #40bc3a;{% endif %}" class="ri-checkbox{% if forloop.counter <= current_milestone_index %}-fill{% else %}-blank-line{% endif %}"></i>
+                                <div style="font-size: x-small;" class="step-name">{{ milestone }}</div>
+                            </div>
+                        
+                        {% if forloop.counter|divisibleby:4 %}</div>{% endif %}
+                    {% endfor %}{% endcomment %}
+                    {% if number_of_completed_tasks > 0 and number_of_open_tasks > 0 %}
+                        <div class="last-transaction-horizontal-line" style="margin-top: 38px!important;"></div>
+                        <div class="last-transaction-mobile-table" style="margin-left: 29px;">
+                            <div class="users-tasks-header">
+                                Users Tasks
+                            </div>
+                            <table class="table user-tasks-table" style="overflow-x: auto;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="px-0 text-muted">Task</th>
+                                        <th scope="col" class="px-0 text-muted">Status</th>
+                                        <th scope="col" class="px-0 text-muted">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for task in completed_tasks %}
+                                        <tr>
+                                            <td class="user-tasks-table-task-name">{{ task }}</td>
+                                            <td class="text-success user-tasks-table-task-status" style="font-weight: bold;">Completed</td>
+                                            <td></td>
+                                        </tr>
+                                        
+                                    {% endfor %}
+                                    {% for task in open_tasks %}
+                                        <tr>
+                                            <td class="user-tasks-table-task-name">{{ task.label }}</td>
+                                            <td class="user-tasks-table-task-status" style="color: #f6871f;">Open</td>
+                                            <td class="user-tasks-table-task-action">
+                                                <i class="ri-file-upload-fill text-primary"></i>
+                                                <a class="open_document_upload_modal" href="javascript:;" data-bs-toggle="modal" data-bs-target="#document-upload-popup" data-transaction-id="{{ most_recent_transaction.Opportunity.Id }}" data-task-api="{{ task.api }}" data-task-value="{{ task.value }}">Upload</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    {% endif %}
+                
+                </div>
+            {% endif %}
+            
+
+
+            {% comment %} <div class="col-lg-3">
+                <div class="d-flex align-items-stretch">
+                    <!-- earnings card -->
+                    <div class="card bg-primary w-100" id="blue-box-outstanding-tasks">
+                        <div class="card-body card-hover">
+                            <a href='{% url 'client_portal:tasks' %}'>
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title text-white">Tasks</h4>
+                                    <div class="ms-auto">
+                                        <span class="btn btn-lg btn-info btn-circle d-flex align-items-center justify-content-center">
+                                            <i data-feather="check-circle"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h2 class="fs-8 text-white mb-0">{{ transactions_with_tasks_outstanding }}</h2>
+                                    <span class="text-white op-5">Transactions with Tasks outstanding</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-stretch" style="display:none!important;">
+                    <!-- monthly sales card -->
+                    <div class="card w-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h5 class="fw-normal mb-0 text-muted">Monthly Sales</h5>
+                                    <h2 class="mb-0">3246</h2>
+                                </div>
+                                <div class="ms-auto">
+                                    <span class="btn btn-lg btn-warning btn-circle d-flex align-items-center justify-content-center">
+                                        <i data-feather="shopping-bag"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- chart -->
+                        <div id="monthly-sales"></div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+            <!-- TABLE RIGHT -->
+            
+            {% comment %} {% include 'client_portal/partials/recent_transactions_table.html' %} {% endcomment %}
+
+        </div>
+        <!-- Row -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+
+    {% include 'includes/footer.html' %}
+</div>

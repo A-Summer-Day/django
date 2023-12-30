@@ -1,0 +1,127 @@
+{% load static %}
+{% load filters %}
+
+<div class="col-lg-9 d-flex align-items-stretch">
+    <div class="card w-100">
+        <div class="card-body">
+            <div class="d-md-flex align-items-center">
+                <div>
+                    <h3 class="card-title">Recent Transactions</h3>
+                </div>
+
+            </div>
+            {% if error %} 
+                {{ error }}
+            {% else %}
+                <div class="table-responsive mt-4">
+                    <table class="table mb-0 text-nowrap varient-table align-middle fs-3 stack-table recent-transactions-table"> 
+                    {% comment %} <table class="tablesaw no-wrap table-hover tablesaw-stack">{% endcomment %}
+                        <thead>
+                            <tr>
+                                <th scope="col" class="px-0 text-muted">Property</th>
+                                {% if user.is_client %}
+                                    <th scope="col" class="px-0 text-muted">Clerk Name</th>
+                                {% else %}
+                                    <th scope="col" class="px-0 text-muted">Client Name</th>
+                                {% endif %}
+                                <th scope="col" class="px-0 text-muted">Stage</th>
+                                <th scope="col" class="px-0 text-muted">Progress</th>
+                                <th scope="col" class="px-0 text-muted text-end">Close Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- For each in 5 recent items-->
+                            {% for transaction in transactions %}
+                                <tr>
+                                    <td class="px-0">
+                                        <div class="d-flex align-items-center">
+                                            {% comment %} <img src='{% static 'assets/images/users/1.jpg' %}' class="rounded-circle" width="35"> {% endcomment %}
+                                            {% if transaction.Opportunity.Clerk_Assigned_Email_Address__c %}
+                                                {% with '/static/assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' as file_path %}
+                                                    {% if file_path|file_exists %}
+                                                        <img src='{% static 'assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' %}' width="35" class="rounded-circle" alt="user">
+                                                    {% else %}
+                                                        <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% else %}
+                                                <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                            {% endif %}
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 fw-bold"><a href='{{ request.scheme }}://{{ request.get_host }}/transactions/{{ transaction.Opportunity.Id }}'>{{ transaction.Opportunity.Name }}</a></h6>
+                                                {% comment %} <span class="text-muted fs-9">{{ transaction.Opportunity.RecordType.Name }}</span> {% endcomment %}
+                                                <span class="text-muted fs-9">{{ transaction.portal_transaction_type }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {% if user.is_client %}
+                                        <td class="px-0">{{ transaction.Opportunity.Clerk_Assigned_Full_Name__c }}</td>
+                                    {% else %}
+                                        <td class="px-0">{{ transaction.Opportunity.Client_on_File__c }}</td>
+                                    {% endif %}
+                                    <td class="px-0">
+                                        {{ transaction.Opportunity.Milestone__c }}
+                                        {% comment %} <span class="badge bg-{% if transaction.Opportunity.StageName == 'Closed Lost' %}danger{% elif transaction.Opportunity.StageName == 'Closed Won' %}success{% else %}info{% endif %}">{% if transaction.Opportunity.StageName == 'Closed Lost' or transaction.Opportunity.StageName == 'Closed Won' %}Closed{% else %}{{ transaction.Opportunity.StageName }}{% endif %}</span> {% endcomment %}
+                                    </td>
+                                    <td class="px-0">
+                                        <div class="progress mt-2" data-bs-toggle="tooltip" title="{% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %}">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100%{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%{% endif %}" aria-valuenow="{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="px-0 text-dark font-weight-medium text-end">{{ transaction.Opportunity.CloseDate|string_to_datetime|date:"M d, Y" }}</td>
+                                </tr>
+                            {% endfor %} 
+                            <!-- End For Loop-->
+                        </tbody>
+                    </table>
+
+                    <table class="table mb-0 text-nowrap varient-table align-middle fs-3 stack-table-mobile recent-transactions-table" style="display: none;">
+                        <tbody>
+                            <!-- For each in 5 recent items-->
+                            {% for transaction in transactions %}
+                                <tr>
+                                    <td class="px-0">
+                                        <div class="d-flex align-items-center">
+                                            {% comment %} <img src='{% static 'assets/images/users/1.jpg' %}' class="rounded-circle" width="35"> {% endcomment %}
+                                            {% if transaction.Opportunity.Clerk_Assigned_Email_Address__c %}
+                                                {% with '/static/assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' as file_path %}
+                                                    {% if file_path|file_exists %}
+                                                        <img src='{% static 'assets/images/users/'|add:transaction.Opportunity.Clerk_Assigned_Email_Address__c|add:'.png' %}' width="35" class="rounded-circle" alt="user">
+                                                    {% else %}
+                                                        <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% else %}
+                                                <img src='{% static 'assets/images/users/default.png' %}' width="35" class="rounded-circle" alt="user">
+                                            {% endif %}
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 fw-bold"><a href='{{ request.scheme }}://{{ request.get_host }}/transactions/{{ transaction.Opportunity.Id }}'>{{ transaction.Opportunity.Name }}</a></h6>
+                                                {% comment %} <span class="text-muted fs-9">{{ transaction.Opportunity.RecordType.Name }}</span> {% endcomment %}
+                                                <span class="text-muted fs-9">{{ transaction.portal_transaction_type }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {% if user.is_client %}
+                                        <td class="px-0">Clerk Name: {{ transaction.Opportunity.Clerk_Assigned_Full_Name__c }}</td>
+                                    {% else %}
+                                        <td class="px-0">Client Name: {{ transaction.Opportunity.Client_on_File__c }}</td>
+                                    {% endif %}
+                                    <td class="px-0">
+                                        Stage: {{ transaction.Opportunity.Milestone__c }}
+                                    </td>
+                                    <td class="px-0 text-dark font-weight-medium">Close Date: {{ transaction.Opportunity.CloseDate|string_to_datetime|date:"M d, Y" }}</td>
+                                    <td class="px-0">
+                                        <div class="progress mt-2" data-bs-toggle="tooltip" title="{% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100% Complete{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}% Complete{% endif %}">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {% if transaction.Opportunity.StageName == 'Closed Won' or transaction.Opportunity.StageName == 'Closed Lost' %}100%{% else %}{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}%{% endif %}" aria-valuenow="{{ transaction.Opportunity.Milestone_Completion__c|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %} 
+                            <!-- End For Loop-->
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

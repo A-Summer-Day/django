@@ -1,0 +1,30 @@
+[
+    {"Allon":
+        {
+            "email": "ahollander@axesslaw.com",
+            "phone": "416-303-5696",
+            "full_name": "Allon Hollander"
+        }
+    },
+    {"Brianna":
+        {
+            "email": "bfrith@axesslaw.com",
+            "phone": "647-674-7607",
+            "full_name": "Brianna Frith"
+        }
+    },
+    {"Shayan":
+        {
+            "email": "snajafi@axesslaw.com",
+            "phone": "416-939-8676",
+            "full_name": "Shayan Najafi"
+        }
+    },
+    {"Jon":
+        {
+            "email": "jcastellano@axesslaw.com",
+            "phone": "647-206-8494",
+            "full_name": "Jon Castellano"
+        }
+    }
+]

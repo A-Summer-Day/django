@@ -1,0 +1,66 @@
+.welcome-card::before {
+  background-image: url("../../src/assets/images/background/welcome-bg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.total-sales-icon {
+  position: absolute;
+  left: 46%;
+  top: 45%;
+}
+
+.blog-img {
+  max-height: 200px;
+}
+
+// timeline
+.timeline-widget {
+  position: relative;
+  list-style: none;
+  &:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 55px;
+    width: 3px;
+    margin-left: -1.5px;
+    background-color: $gray-200;
+  }
+  .timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    .timeline-time {
+      margin-left: -30px;
+      margin-right: 12px;
+    }
+    .timeline-badge {
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+      background-color: #ffffff;
+      &.badge-primary {
+        border: 4px solid $primary;
+      }
+      &.badge-success {
+        border: 4px solid $success;
+      }
+      &.badge-danger {
+        border: 4px solid $danger;
+      }
+      &.badge-warning {
+        border: 4px solid $warning;
+      }
+      &.badge-info {
+        border: 4px solid $info;
+      }
+    }
+  }
+}

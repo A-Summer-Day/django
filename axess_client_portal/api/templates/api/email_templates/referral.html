@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="main-wrapper">
+        <h3>Client Portal - API Referral</h3>        
+        <p><strong>Firm Code: </strong> {{ firm_code }}</p>
+        <p><strong>Referral Type: </strong> {{ referral_type }}</p>
+        <p><strong>File Type: </strong> {{ file_type }}</p>
+        <p><strong>Name: </strong> {{ name }}</p>
+        <p><strong>Email Address: </strong> {{ email }}</p>
+        <p><strong>Phone Number: </strong> {{ phone }}</p>
+        <p><strong>Street Address 1: </strong> {{ street_address_1 }}</p>
+        <p><strong>Street Address 2: </strong> {{ street_address_2 }}</p>
+        <p><strong>City: </strong> {{ city }}</p>
+        <p><strong>Province: </strong> {{ province }}</p>
+        <p><strong>Postal Code: </strong> {{ postal_code }}</p>
+        <p><strong>Submission Id: </strong> {{ submission_id }}</p>
+    </div>
+{% endblock %}

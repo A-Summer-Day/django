@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="main-wrapper">
+        <h3>A new user has registered for the client portal!</h3>
+        <p>Associated email address: {{ email_address }}</p>
+        <p>Please grant access to this user if necessary.</p>
+    </div>
+{% endblock %}

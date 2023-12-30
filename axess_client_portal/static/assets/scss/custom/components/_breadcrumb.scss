@@ -1,0 +1,55 @@
+/*******************
+ Breadcrumb and page title
+*******************/
+
+.page-titles {
+  padding: 30px;
+  .breadcrumb {
+    background-color: transparent;
+  }
+}
+
+.breadcrumb {
+  &.bg-light-info,
+  &.border-info {
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $info;
+    }
+  }
+}
+
+.breadcrumb {
+  &.bg-light-primary,
+  &.border-primary {
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $primary;
+    }
+  }
+}
+
+.breadcrumb {
+  &.bg-light-warning,
+  &.border-warning {
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $warning;
+    }
+  }
+}
+
+.breadcrumb {
+  &.bg-light-danger,
+  &.border-danger {
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $danger;
+    }
+  }
+}
+
+.breadcrumb {
+  &.bg-light-success,
+  &.border-success {
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $success;
+    }
+  }
+}
